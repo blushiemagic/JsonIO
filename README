@@ -1,0 +1,7 @@
+A simple JSON library I made a long time ago when all the options I found were too complicated for my needs. It can read JSON files, manipulate them, and write them. There are probably better options out there.
+
+The namespace is JsonIO. To read a JSON file, simply call `JsonReader.ReadJson(string)` or `JsonReader.ReadJson(TextReader)`. This will return a JValue object. You may call various methods: `GetString()`, `GetInt(), `GetSingle()` or `GetDouble()`, `GetBool()`, and `IsNull()`. You may also use indexers for lists or objects, with int keys or string keys respectively. Lists can also use `Add(JValue)`, `Add(JValue, int)`, `Remove(int)`, and `EnumerateList()`. Objects can also use `ContainsKey(string)`, `Remove(string)`, and `EnumerateObject()`.
+
+The possible JSON values you can create are: `JNull.Value`, `JBool.True`, `JBool.False`, `new JInt(int)`, `new JFloatingPoint(double)`, and `new JString(string)`. These objects are all immutable. You can also create mutable values with `new JList()`, `new JList(List<JValue>)` (the JList will be backed directly by the list instance you pass in), `new JObject()`, and `new JObject(Dictionary<string, JValue>)` (the JObject will be backed directly by the dictionary instance you pass in).
+
+To write a JSON file, simply call WriteValue(TextWriter) on a JValue instace (preferrably a JObject).
